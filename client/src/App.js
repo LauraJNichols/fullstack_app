@@ -1,6 +1,11 @@
 // /client/App.js
 import React, { Component } from 'react';
 import axios from 'axios';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import Table from 'react-bootstrap/Table'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   // initialize our state
@@ -12,6 +17,7 @@ class App extends Component {
     idToDelete: null,
     idToUpdate: null,
     objectToUpdate: null,
+    currentUrl: null,
   };
 
   // when component mounts, first thing it does is fetch all existing data in our db
@@ -69,7 +75,7 @@ class App extends Component {
     parseInt(idTodelete);
     let objIdToDelete = null;
     this.state.data.forEach((dat) => {
-      if (dat.id == idTodelete) {
+      if (dat.id === idTodelete) {
         objIdToDelete = dat._id;
       }
     });
@@ -87,7 +93,7 @@ class App extends Component {
     let objIdToUpdate = null;
     parseInt(idToUpdate);
     this.state.data.forEach((dat) => {
-      if (dat.id == idToUpdate) {
+      if (dat.id === idToUpdate) {
         objIdToUpdate = dat._id;
       }
     });
@@ -111,7 +117,7 @@ class App extends Component {
       <div>
           
         <Header/>  
-        <Content data = {data}/>  
+        <Content data = {data}/>
 
         <div style={{ padding: '10px' }}>
           <input
@@ -178,6 +184,18 @@ class Header extends React.Component {
        return (
           <div>
              <h1>Songs to Play</h1>
+             <Navbar bg="dark" variant="dark">
+              <Navbar.Brand href="home">Hub</Navbar.Brand>
+              <Nav className="mr-auto">
+                <Nav.Link href="home">Home</Nav.Link>
+                <Nav.Link href="features">Repertoire</Nav.Link>
+                <Nav.Link href="pricing">Expenses</Nav.Link>
+              </Nav>
+              {/* <Form inline>
+                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                <Button variant="outline-info">Search</Button>
+              </Form> */}
+            </Navbar>         
           </div>
        );
     }
@@ -186,7 +204,7 @@ class Header extends React.Component {
     render() {
        return (
           <div>
-            <table>
+            <Table striped bordered hover size="sm" variant="dark">
                <thead>
                    <tr>
                        <td>id</td>
@@ -199,7 +217,7 @@ class Header extends React.Component {
                        this.props.data.map((dat, i) => <TableRow key = {i} data = {dat} />)
                    }
                </tbody>
-            </table>
+            </Table>
           </div>
        );
     }
