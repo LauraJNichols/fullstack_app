@@ -5,6 +5,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Table from 'react-bootstrap/Table'
 import Repertoire from './repertoire'
+import Expenses from './expenses'
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -26,7 +28,8 @@ class App extends Component {
     return (
       <div>
           
-        <Header/>  
+        <Header/>
+        <div name="How do I put everything here? I want it squished."></div>
 
       </div>
     );
@@ -37,7 +40,8 @@ class Header extends React.Component {
     render() {
        return (
           <div>
-             <Navbar bg="dark" variant="dark">
+
+            <Navbar bg="dark" variant="dark">
               <Navbar.Brand href="home">Hub</Navbar.Brand>
               <Nav className="mr-auto">
                 <Nav.Link href="home">Home</Nav.Link>
@@ -48,7 +52,13 @@ class Header extends React.Component {
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                 <Button variant="outline-info">Search</Button>
               </Form> */}
-            </Navbar>         
+            </Navbar>    
+            <Router>
+                <div>
+                  <Route path="/expenses" component={Expenses} />
+                  <Route path="/repertoire" component={Repertoire} />
+                </div>
+            </Router>     
           </div>
        );
     }
