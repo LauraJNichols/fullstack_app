@@ -188,8 +188,8 @@ class Header extends React.Component {
               <Navbar.Brand href="home">Hub</Navbar.Brand>
               <Nav className="mr-auto">
                 <Nav.Link href="home">Home</Nav.Link>
-                <Nav.Link href="features">Repertoire</Nav.Link>
-                <Nav.Link href="pricing">Expenses</Nav.Link>
+                <Nav.Link href="repertoire">Repertoire</Nav.Link>
+                <Nav.Link href="expenses">Expenses</Nav.Link>
               </Nav>
               {/* <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
