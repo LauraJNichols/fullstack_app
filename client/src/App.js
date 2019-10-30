@@ -39,7 +39,7 @@ class App extends Component {
 class Header extends React.Component {
     render() {
        return (
-          <div>
+          <div className="container mt-4">
 
             <Navbar bg="dark" variant="dark">
               <Navbar.Brand href="home">Hub</Navbar.Brand>
@@ -54,7 +54,7 @@ class Header extends React.Component {
               </Form> */}
             </Navbar>    
             <Router>
-                <div>
+                <div >
                   <Route path="/expenses" component={Expenses} />
                   <Route path="/repertoire" component={Repertoire} />
                 </div>
