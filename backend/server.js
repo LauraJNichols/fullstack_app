@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
+const fs = require('fs')
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const Data = require('./data');
@@ -10,19 +11,20 @@ const app = express();
 app.use(cors());
 const router = express.Router();
 
-// this is our MongoDB database
+// this is our MongoDB database. Where is the scram?
+//fs.readFileSync('../dbPassword', 'UTF-8')
 const dbRoute =
-  'mongodb+srv://luka:scram@cluster0-croel.mongodb.net/test?retryWrites=true&w=majority';
+  'mongodb+srv://luka2:' + fs.readFileSync('../dbPassword', 'UTF-8') + '@cluster0-croel.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 
 let db = mongoose.connection;
 
-db.once('open', () => console.log('connected to the database'));
+db.once('open', () => console.log('Connected to the database'));
 
 // checks if connection with the database is successful
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', console.error.bind(console, '==== MongoDB connection error. Check secret is correct.\n'));
 
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format

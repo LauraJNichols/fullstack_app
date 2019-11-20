@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 import Table from 'react-bootstrap/Table'
 import Repertoire from './repertoire'
 import Expenses from './expenses'
+import Search from './search'
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,6 +46,7 @@ class Header extends React.Component {
               <Navbar.Brand href="home">Hub</Navbar.Brand>
               <Nav className="mr-auto">
                 <Nav.Link href="home">Home</Nav.Link>
+                <Nav.Link href="search">Search</Nav.Link>
                 <Nav.Link href="repertoire">Repertoire</Nav.Link>
                 <Nav.Link href="expenses">Expenses</Nav.Link>
               </Nav>
@@ -57,6 +59,7 @@ class Header extends React.Component {
                 <div >
                   <Route path="/expenses" component={Expenses} />
                   <Route path="/repertoire" component={Repertoire} />
+                  <Route path="/search" component={Search} />
                 </div>
             </Router>     
           </div>
