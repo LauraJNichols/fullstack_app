@@ -1,12 +1,11 @@
 // /client/App.js
 import React, { Component } from 'react';
-import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Table from 'react-bootstrap/Table'
 import Repertoire from './repertoire'
 import Expenses from './expenses'
 import Search from './search'
+import Results from './results'
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -60,6 +59,7 @@ class Header extends React.Component {
                   <Route path="/expenses" component={Expenses} />
                   <Route path="/repertoire" component={Repertoire} />
                   <Route path="/search" component={Search} />
+                  <Route path="/results" component={Results} />
                 </div>
             </Router>     
           </div>

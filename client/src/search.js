@@ -1,7 +1,8 @@
 import React from 'react'
+import SearchBar from './searchbar'
 class Search extends React.Component {
   render() {
-    return <h1>Search</h1>
+    return <SearchBar/>
   }
 }
 export default Search
